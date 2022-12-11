@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [disasterController::class,'index']);
 Route::get('/disaster/create',[disasterController::class,'create']);
 Route::post('/disaster',[disasterController::class,'store']);
+Route::get("/disaster/{listing}",[disasterController::class,'show']);

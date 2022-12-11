@@ -60,17 +60,17 @@
     </div>
     @endif
     <div class="mb-6">
-        <label for="title" class="inline-block text-lg mb-2"
+        <label for="name" class="inline-block text-lg mb-2"
             > Name Of The Site/Building</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="title"
-            placeholder="Example: Senior Laravel Developer"
-            value="{{old('title')}}"
+            name="name"
+            placeholder="Example: musium"
+            value="{{old('name')}}"
         />
-        @error('title')
+        @error('name')
         <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
         @enderror
     </div>
@@ -89,7 +89,22 @@
         <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
         @enderror
     </div>
-
+{{-- ------- --}}
+{{-- <div class="mb-6">
+    <label for="use" class="inline-block text-lg mb-2"
+        > use</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="use"
+        placeholder="Example: Senior Laravel Developer"
+        value="{{old('use')}}"
+    />
+    @error('use')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div> --}}
     <div class="mb-6">
         <label for="logo" class="inline-block text-lg mb-2">
             Company Logo

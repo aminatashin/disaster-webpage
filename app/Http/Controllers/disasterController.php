@@ -8,11 +8,20 @@ use Illuminate\Http\Request;
 class disasterController extends Controller
 {
     public function index(){
-    
+    // -------Get All---------------
         return view('homePage',[
             'listings'=> disasterModel::get()
         ]);
     }
+    // -------Get by id---------------
+
+    public function show(disasterModel $listing){
+        return view('listing',[
+            'listing'=> $listing
+        ]);
+    }
+
+
 // -------Get create---------------
     public function create(){
         return view('create');
@@ -22,7 +31,7 @@ class disasterController extends Controller
 
 public function store(Request $request){
     $form=$request->validate([
-        'title'=>'required',
+        'name'=>'required',
         'address'=>'required',
         // 'cpuntry'=>'required',
         // 'email'=>['required','email'],
