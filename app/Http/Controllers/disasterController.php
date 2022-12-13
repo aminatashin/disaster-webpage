@@ -10,7 +10,7 @@ class disasterController extends Controller
       // -------Get All---------------
     public function index(){
   
-        return view('new',[
+        return view('homepage',[
             'listings'=> disasterModel::get()
         ]);
     }

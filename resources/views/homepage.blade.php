@@ -12,7 +12,7 @@
           <a href="/disaster/{{$listing->id}}"> {{$listing->title}}</a>
         
         </div>
-        <img src="{{$listing->picture}}" alt="House" style="max-width:100%">
+        <img src="{{$listing->picture}}" alt="" style="max-width:100%">
       </div>
     </div>
     @endforeach
