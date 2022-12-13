@@ -89,22 +89,119 @@
         <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
         @enderror
     </div>
+
 {{-- ------- --}}
-{{-- <div class="mb-6">
+<div class="mb-6">
+    <label for="email" class="inline-block text-lg mb-2"
+        > Email</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="email"
+        placeholder="Example: musium"
+        value="{{old('email')}}"
+    />
+    @error('email')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+{{-- ------- --}}
+<div class="mb-6">
+    <label for="fullname" class="inline-block text-lg mb-2"
+        > Full Name</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="fullname"
+        placeholder="Example: musium"
+        value="{{old('fullname')}}"
+    />
+    @error('fullname')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+{{-- ------- --}}
+<div class="mb-6">
+    <label for="number" class="inline-block text-lg mb-2"
+        > Contact Number</label
+    >
+    <input
+        type="number"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="number"
+        placeholder="Example: musium"
+        value="{{old('number')}}"
+    />
+    @error('number')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+{{-- ------- --}}
+<div class="mb-6">
+    <label for="significance" class="inline-block text-lg mb-2"
+        > Significance</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="significance"
+        placeholder="Example: musium"
+        value="{{old('significance')}}"
+    />
+    @error('significance')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+{{-- ------- --}}
+<div class="mb-6">
     <label for="use" class="inline-block text-lg mb-2"
-        > use</label
+        > Use</label
     >
     <input
         type="text"
         class="border border-gray-200 rounded p-2 w-full"
         name="use"
-        placeholder="Example: Senior Laravel Developer"
+        placeholder="Example: musium"
         value="{{old('use')}}"
     />
     @error('use')
     <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
     @enderror
-</div> --}}
+</div>
+{{-- ------- --}}
+<div class="mb-6">
+    <label for="keywords" class="inline-block text-lg mb-2"
+        > Key Words</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="keywords"
+        placeholder="Example: musium"
+        value="{{old('keywords')}}"
+    />
+    @error('keywords')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+{{-- ------- --}}
+<div class="mb-6">
+    <label for="link" class="inline-block text-lg mb-2"
+        > Link</label
+    >
+    <input
+        type="text"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="link"
+        placeholder="Example: musium"
+        value="{{old('link')}}"
+    />
+    @error('link')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
     <div class="mb-6">
         <label for="logo" class="inline-block text-lg mb-2">
             Company Logo
@@ -116,6 +213,42 @@
             value="{{old('logo')}}"
         />
         @error('logo')
+        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+        @enderror
+    </div>
+    <div class="mb-6">
+        <label
+            for="recomendation"
+            class="inline-block text-lg mb-2"
+        >
+             Recomendation
+        </label>
+        <textarea
+            class="border border-gray-200 rounded p-2 w-full"
+            name="recomendation"
+            rows="10"
+            placeholder="Include tasks, requirements, salary, etc"
+          
+        >{{old('recomendation')}}</textarea>
+        @error('recomendation')
+        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+        @enderror
+    </div>
+    <div class="mb-6">
+        <label
+            for="description"
+            class="inline-block text-lg mb-2"
+        >
+             Description
+        </label>
+        <textarea
+            class="border border-gray-200 rounded p-2 w-full"
+            name="description"
+            rows="10"
+            placeholder="Include tasks, requirements, salary, etc"
+          
+        >{{old('description')}}</textarea>
+        @error('description')
         <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
         @enderror
     </div>

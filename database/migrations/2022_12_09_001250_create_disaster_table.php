@@ -15,18 +15,21 @@ return new class extends Migration
     {
         Schema::create('disaster', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('address');
-            // $table->string('use');
-            // $table->string('significance');
-            // $table->string('description');
-            // $table->string('recomendation');
-            // $table->string('email');
-            // $table->string('fullname');
-            // $table->integer('number');
-            // $table->string('keywords');
-            // $table->string('link');
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('use')->nullable();
+            $table->string('significance')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('recomendation')->nullable();
+            $table->string('email')->nullable();
+            $table->string('fullname')->nullable();
+            $table->integer('number')->nullable();
+            $table->string('keywords')->nullable();
+            $table->string('link')->nullable();
+            $table->string('title')->nullable();
+            $table->longText('explanation')->nullable();
             $table->string('logo')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

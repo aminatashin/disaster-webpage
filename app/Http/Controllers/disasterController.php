@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class disasterController extends Controller
 {
+      // -------Get All---------------
     public function index(){
-    // -------Get All---------------
-        return view('homePage',[
+  
+        return view('new',[
             'listings'=> disasterModel::get()
         ]);
     }
+   
     // -------Get by id---------------
 
     public function show(disasterModel $listing){
@@ -21,6 +23,7 @@ class disasterController extends Controller
         ]);
     }
 
+  
 
 // -------Get create---------------
     public function create(){
@@ -33,15 +36,24 @@ public function store(Request $request){
     $form=$request->validate([
         'name'=>'required',
         'address'=>'required',
-        // 'cpuntry'=>'required',
-        // 'email'=>['required','email'],
-        // 'fullname'=>'required',
-        // 'number'=>'required',
-        // 'description'=>'required',
+        'significance'=>'required',
+        'email'=>['required','email'],
+        'fullname'=>'required',
+        'number'=>'required',
+        'description'=>'required',
+        'recomendation'=>'required',
+        'use'=>'required',
+        'keywords'=>'required',
+        'link'=>'required',
+        
+       
        
     ]);
         if($request->hasFile('logo')){
             $form['logo']=$request->file('logo')->store('pics','public');
+        };
+        if($request->hasFile('picture')){
+            $form['picture']=$request->file('picture')->store('img','public');
         };
     disasterModel::create($form);
     return redirect('/')->with('success','uploaded');

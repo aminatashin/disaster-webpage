@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class disasterModel extends Model
 {
+   
     use HasFactory;
-    protected $fillable=['name','logo','address','use'];
+    protected $fillable=['name','picture','explanation','title','logo','address','significance','description','recomendation','email','fullname','keywords','link','number','use'];
     protected $table ='disaster';
+  
+   
+    
 }
