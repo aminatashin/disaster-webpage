@@ -20,7 +20,7 @@
 					<h1 id="logo"><a href="index.html">Twenty <span>by HTML5 UP</span></a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">Welcome</a></li>
+							<li class="current"><a href="/">Welcome</a></li>
 							<li class="submenu">
 								<a href="#">Layouts</a>
 								<ul>
@@ -131,31 +131,11 @@
 								<h2>Next look at this <strong>Projects</strong></h2>
 							</header>
 
-							<div class="row">
-                @foreach($listings as $listing)
-								<div class="col-6 col-12-narrower">
 
-									<section>
-										<a href="#" class="image featured"><img src="{{$listing->picture}}" alt="" /></a>
-										<header>
-											<h3>{{$listing->title}}</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-									</section>
-
-								</div>
-                @endforeach
-
-							</div>
-	
-
-							<footer class="major">
-								<ul class="buttons">
-									<li><a href="#" class="button">See More</a></li>
-								</ul>
-							</footer>
+							<x-static />
 
 						</section>
+
 
 
 

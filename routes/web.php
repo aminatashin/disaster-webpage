@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [disasterController::class,'index']);
-
+Route::get('disaster/static1',function(){
+return view('static1');
+});
+Route::get('disaster/static2',function(){
+    return view('static2');
+    });
 Route::get('/disaster/create',[disasterController::class,'create']);
 Route::post('/disaster',[disasterController::class,'store']);
 

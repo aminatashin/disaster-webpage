@@ -9,7 +9,7 @@
     <div class="w3-col l3 m6 w3-margin-bottom d-flex">
       <div class="w3-display-container mt-2">
         <div class="w3-display-topleft w3-black w3-padding">
-          <a href="/disaster/{{$listing->id}}"> {{$listing->title}}</a>
+          <a href="/disaster/102"> {{$listing->title}}</a>
         
         </div>
         <img src="{{$listing->picture}}" alt="" style="max-width:100%">

@@ -18,7 +18,7 @@ class disasterController extends Controller
     // -------Get by id---------------
 
     public function show(disasterModel $listing){
-        return view('listing',[
+        return view('nonsidbar',[
             'listing'=> $listing
         ]);
     }

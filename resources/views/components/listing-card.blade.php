@@ -10,11 +10,12 @@
 
 <section>
   <span class="icon solid featured fa-check"></span>
-  <a href="#" class="image featured"><img src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset($listing->picture) }}" alt="" /></a>
-  <header>
-    <h3>{{$listing->name}}</h3>
-    <p> {{$listing->significance}}</p>
-    <p> {{$listing->address}}</p>
+  <a href={{"disaster/$listing->id"}} class="image featured"><img src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset("img/no-image.jpg") }}" alt="" /></a>
+<header class="flex">
+ <h3>{{$listing->name}}</h3> 
+  <h2>{{$listing->address}}</h2> 
+   <p>{{$listing->significance}}</p>
+   
+    <h3><x-tag  :label="$listing->keywords" /></h3>
   </header>
-  <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
 </section>
