@@ -9,7 +9,7 @@
   
    
   
-        <a href="/?keyword={{$keyword}}">{{$keyword}},</a>
+        <a href="/?keyword={{$keyword}}"><span class="badge badge-warning">{{$keyword}}</span></a>
    
    @endforeach
 </ul>

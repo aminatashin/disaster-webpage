@@ -9,6 +9,8 @@
 		<title>Twenty by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
 		<link rel="stylesheet" href="css/style.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
@@ -76,10 +78,22 @@
 
 			<!-- Main -->
 				<article id="main">
+					
 
-					<header class="special container">
+					<header class="special container" >
+						<form action="">
+						<div class="input-group mb-4 "  >
+						
+							<input type="text" name="search" style="height: 5rem" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="button-addon2">
+							<div class="input-group-append  ">
+							  <button class="btn btn-outline-secondary"  type="submit" id="button-addon2">Search</button>
+							</div>
+						
+						  </div>
+						</form>
+						
 						<span class="icon solid fa-chart-bar"></span>
-						<h2>As this is my <strong>twentieth</strong> freebie for HTML5 UP
+						<h2 class="mt-2" >As this is my <strong>twentieth</strong> freebie for HTML5 UP
 						<br />
 						I decided to give it a really creative name.</h2>
 						<p>Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,
@@ -149,12 +163,16 @@
 
 								</div>
                @endforeach
-						
-							
+				
 							</div>
+							<a href='disaster/create'>	
+								<button type="button" style="min-width: 6rem" class="btn btn-dark justify-content-center">Create the Disaster</button>
+							 </a>
 						</section>
-
+						
+						
 				</article>
+				
 
 			<!-- CTA -->
 				<section id="cta">

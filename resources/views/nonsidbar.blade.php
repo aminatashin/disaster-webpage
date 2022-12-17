@@ -9,6 +9,7 @@
 		<title>No Sidebar - Twenty by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 		<link rel="stylesheet" href="../css/style.css" />
 		<noscript><link rel="stylesheet" href="../css/noscript.css" /></noscript>
 	</head>
@@ -51,26 +52,39 @@
 					<header class="special container">
 						<span class="icon solid fa-mobile-alt"></span>
 						<strong><h2>{{$listing->title}}{{$listing->name}} </strong></h2>
-						<p>{{$listing->address}}</p>
-                        <p>{{$listing->significance}}</p>
+						<span class="badge badge-pill badge-light"><p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+							
+							<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+							
+						</svg>{{$listing->address}}</p></span>
+                        <p><span class="badge badge-primary">{{$listing->significance}}</span></p>
 					</header>
 
 					<!-- One -->
+					
 						<section class="wrapper style4 container">
-
+							
 							<!-- Content -->
-								<div class="content">
+								<div class="content justify-content-flex-end ">
 									<section>
 										<a href="#" class="image featured"><img  src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset($listing->picture) }}" alt="" /></a>
 										<header>
 											<h3><x-tag  :label="$listing->keywords" /></h3>
 										</header>
-                                        
+                                       
 										<p>{{$listing->description}}</p>
 										<p> {{$listing->recomendation}}</p>
-                                        <p  class="text-xl  mb-4">
-                                            {{$listing->explanation}}
-                                        </p>
+										<div id="editButton" style="display: flex" >
+											<a href="/disaster/{{$listing->id}}/edit"><button type="button"  style="min-width: 6rem" class="btn btn-success  ">Edit</button></a>
+											<form method="POST" action="/disaster/{{$listing->id}}" >
+												@csrf
+												@method("DELETE")
+												
+												<button style="min-width: 6rem" class="btn btn-danger ml-5 ">Delete</button>
+											</form>
+										</div>
+								
+										
                                         
                                         
                                       

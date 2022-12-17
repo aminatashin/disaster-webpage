@@ -3103,6 +3103,11 @@ input, select, textarea {
 					width: 3em;
 				}
 
+
+				#editButton{
+					justify-content: space-between;
+				}
+
 				#navPanel .indent-4 {
 					display: inline-block;
 					width: 4em;

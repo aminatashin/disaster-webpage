@@ -23,6 +23,8 @@ Route::get('disaster/static2',function(){
     });
 Route::get('/disaster/create',[disasterController::class,'create']);
 Route::post('/disaster',[disasterController::class,'store']);
-
+Route::get('/disaster/{listing}/edit',[disasterController::class,'update']);
+Route::put('/disaster/{listing}',[disasterController::class,'edit']);
+Route::delete('/disaster/{listing}',[disasterController::class,'destroy']);
 Route::get("/disaster/{listing}",[disasterController::class,'show']);
 

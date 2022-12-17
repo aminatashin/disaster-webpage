@@ -12,6 +12,19 @@ class disasterModel extends Model
     protected $fillable=['name','picture','explanation','title','logo','address','significance','description','recomendation','email','fullname','keywords','link','number','use'];
     protected $table ='disaster';
   
-   
+   public function scopeFilter($query, array $filters){
+    if($filters['keyword'] ?? false){
+        $query->where('keywords', 'like', '%' . request('keyword') . '%');
+        
+    }
+
+    if($filters['search'] ?? false){
+        $query->where('title', 'like', '%' . request('search') . '%')
+        ->orWhere('description', 'like', '%' . request('search') . '%')
+        ->orWhere('keywords', 'like', '%' . request('search') . '%');
+        
+    }
+
+   }
     
 }

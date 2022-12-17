@@ -11,7 +11,7 @@ class disasterController extends Controller
     public function index(){
   
         return view('new',[
-            'listings'=> disasterModel::get()
+            'listings'=> disasterModel::latest()->filter(request(['keyword','search']))->get()
         ]);
     }
    
@@ -29,7 +29,9 @@ class disasterController extends Controller
     public function create(){
         return view('create');
     }
-
+    public function update(disasterModel $listing){
+        return view('components.edit',['listing'=>$listing]);
+    }
 // -------POST---------------
 
 public function store(Request $request){
@@ -57,6 +59,41 @@ public function store(Request $request){
         };
     disasterModel::create($form);
     return redirect('/')->with('success','uploaded');
+}
+// -------PUT---------------
+
+
+public function edit(disasterModel $listing , Request $request){
+
+    $form=$request->validate([
+        'name'=>'required',
+        'address'=>'required',
+        'significance'=>'required',
+        'email'=>['required','email'],
+        'fullname'=>'required',
+        'number'=>'required',
+        'description'=>'required',
+        'recomendation'=>'required',
+        'use'=>'required',
+        'keywords'=>'required',
+        'link'=>'required',
+        
+       
+       
+    ]);
+        if($request->hasFile('logo')){
+            $form['logo']=$request->file('logo')->store('pics','public');
+        };
+       
+    $listing->update($form);
+    return redirect('/')->with('success','uploaded');
+
+}
+
+
+public function destroy(disasterModel $listing){
+    $listing->delete();
+    return redirect('/');
 }
 
 };
