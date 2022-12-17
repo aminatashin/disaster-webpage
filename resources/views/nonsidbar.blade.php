@@ -23,8 +23,8 @@
 						<ul>
 							<li class="current"><a href="/">Welcome</a></li>
 							<li class="submenu">
-								<a href="#">Layouts</a>
-								<ul>
+								<a href="/#projects">Projects</a>
+								{{-- <ul>
 									<li><a href="left-sidebar.html">Left Sidebar</a></li>
 									<li><a href="right-sidebar.html">Right Sidebar</a></li>
 									<li><a href="no-sidebar.html">No Sidebar</a></li>
@@ -39,9 +39,9 @@
 											<li><a href="#">Ipsum Nisl</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> --}}
 							</li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
+							<li><a href="/register" class="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
 				</header>

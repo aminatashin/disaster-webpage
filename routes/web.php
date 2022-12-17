@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\disasterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
+use App\Http\Controllers\disasterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,6 @@ Route::post('/disaster',[disasterController::class,'store']);
 Route::get('/disaster/{listing}/edit',[disasterController::class,'update']);
 Route::put('/disaster/{listing}',[disasterController::class,'edit']);
 Route::delete('/disaster/{listing}',[disasterController::class,'destroy']);
+Route::get('/register',[userController::class,'register']);
 Route::get("/disaster/{listing}",[disasterController::class,'show']);
 

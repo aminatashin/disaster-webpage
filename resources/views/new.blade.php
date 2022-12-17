@@ -24,8 +24,8 @@
 						<ul>
 							<li class="current"><a href="/">Welcome</a></li>
 							<li class="submenu">
-								<a href="#">Layouts</a>
-								<ul>
+								<a href="/#projects">Layouts</a>
+								{{-- <ul>
 									<li><a href="left-sidebar.html">Left Sidebar</a></li>
 									<li><a href="right-sidebar.html">Right Sidebar</a></li>
 									<li><a href="no-sidebar.html">No Sidebar</a></li>
@@ -40,9 +40,9 @@
 											<li><a href="#">Ipsum Nisl</a></li>
 										</ul>
 									</li>
-								</ul>
+								</ul> --}}
 							</li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
+							<li><a href="/register" class="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -154,7 +154,8 @@
 
 
             	<!-- Three -->
-            <section class="wrapper style1 container special">
+            <section id="projects" class="wrapper style1 container special">
+				<h2>Shared By You</h2>
 							<div class="row">
                 @foreach($listings as $listing)
 								<div class="col-4 col-12-narrower">
@@ -166,7 +167,7 @@
 				
 							</div>
 							<a href='disaster/create'>	
-								<button type="button" style="min-width: 6rem" class="btn btn-dark justify-content-center">Create the Disaster</button>
+								<button type="button" style="min-width: 6rem" class="btn btn-dark justify-content-center">Create Your Disaster</button>
 							 </a>
 						</section>
 						
