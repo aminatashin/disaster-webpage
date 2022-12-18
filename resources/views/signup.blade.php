@@ -13,6 +13,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
     tailwind.config = {
@@ -47,11 +48,11 @@
   <div class="bg-gray-50 border border-gray-200 rounded p-6 max-w-lg mx-auto mt-24" >
   <header class="text-center">
       <h2 class="text-2xl font-bold uppercase mb-1">
-          Sign In
+          Sign Up
       </h2>
       {{-- <p class="mb-4">Post Disaster Site</p> --}}
   </header>
-  <form method="POST" action="/disaster" enctype="multipart/form-data" >
+  <form method="POST" action="/users" enctype="multipart/form-data" >
     @csrf
    
     @if(session('success'))
@@ -59,36 +60,35 @@
         {{session('success')}}
     </div>
     @endif
+    {{-- <div class="mb-6">
+        <label for="pic" class="inline-block text-lg mb-2">
+           Profile Picture
+        </label>
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="pic"
+            value="{{old('pic')}}"
+        />
+        @error('pic')
+        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+        @enderror
+    </div> --}}
     <div class="mb-6">
-        <label for="First Name" class="inline-block text-lg mb-2"
-            > First Name</label
-        >
+        <label for="name" class="inline-block text-lg mb-2">
+            Name
+        </label>
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="First Name"
-            placeholder="Example: musium"
-            value="{{old('First Name')}}"
+            name="name"
+            value="{{old('name')}}"
         />
-        @error('First Name')
+        @error('name')
         <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
         @enderror
     </div>
-    <div class="mb-6">
-        <label for="Last Name" class="inline-block text-lg mb-2"
-            > Last Name</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="Last Name"
-            placeholder="Example: Senior Laravel Developer"
-            value="{{old('Last Name')}}"
-        />
-        @error('Last Name')
-        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-        @enderror
-    </div>
+
 
 {{-- ------- --}}
 <div class="mb-6">
@@ -96,10 +96,10 @@
         > Email</label
     >
     <input
-        type="text"
+        type="email"
         class="border border-gray-200 rounded p-2 w-full"
         name="email"
-        placeholder="Example: musium"
+        placeholder="Example: Email"
         value="{{old('email')}}"
     />
     @error('email')
@@ -108,22 +108,37 @@
 </div>
 {{-- ------- --}}
 <div class="mb-6">
-    <label for="Password" class="inline-block text-lg mb-2"
+    <label for="password" class="inline-block text-lg mb-2"
         > Password</label
     >
     <input
-        type="text"
+        type="password"
         class="border border-gray-200 rounded p-2 w-full"
-        name="Password"
-        placeholder="Example: musium"
-        value="{{old('Password')}}"
+        name="password"
+        placeholder="Example: Password"
+        
     />
-    @error('Password')
+    @error('password')
+    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
+    @enderror
+</div>
+<div class="mb-6">
+    <label for="Password2" class="inline-block text-lg mb-2"
+        > Confirm Password</label
+    >
+    <input
+        type="password"
+        class="border border-gray-200 rounded p-2 w-full"
+        name="password_confirmation"
+        placeholder="Example:Confirm Password"
+      
+    />
+    @error('password_confirmation')
     <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
     @enderror
 </div>
 {{-- ------- --}}
-<div class="mb-6">
+{{-- <div class="mb-6">
     <label for="number" class="inline-block text-lg mb-2"
         > Contact Number</label
     >
@@ -137,133 +152,32 @@
     @error('number')
     <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
     @enderror
-</div>
+</div> --}}
 {{-- ------- --}}
-<div class="mb-6">
-    <label for="significance" class="inline-block text-lg mb-2"
-        > Significance</label
-    >
-    <input
-        type="text"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="significance"
-        placeholder="Example: musium"
-        value="{{old('significance')}}"
-    />
-    @error('significance')
-    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-    @enderror
-</div>
+
 {{-- ------- --}}
-<div class="mb-6">
-    <label for="use" class="inline-block text-lg mb-2"
-        > Use</label
-    >
-    <input
-        type="text"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="use"
-        placeholder="Example: musium"
-        value="{{old('use')}}"
-    />
-    @error('use')
-    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-    @enderror
-</div>
-{{-- ------- --}}
-<div class="mb-6">
-    <label for="keywords" class="inline-block text-lg mb-2"
-        > Key Words</label
-    >
-    <input
-        type="text"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="keywords"
-        placeholder="Example: musium"
-        value="{{old('keywords')}}"
-    />
-    @error('keywords')
-    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-    @enderror
-</div>
-{{-- ------- --}}
-<div class="mb-6">
-    <label for="link" class="inline-block text-lg mb-2"
-        > Link</label
-    >
-    <input
-        type="text"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="link"
-        placeholder="Example: musium"
-        value="{{old('link')}}"
-    />
-    @error('link')
-    <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-    @enderror
-</div>
-    <div class="mb-6">
-        <label for="logo" class="inline-block text-lg mb-2">
-            Company Logo
-        </label>
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="logo"
-            value="{{old('logo')}}"
-        />
-        @error('logo')
-        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-        @enderror
-    </div>
-    <div class="mb-6">
-        <label
-            for="recomendation"
-            class="inline-block text-lg mb-2"
-        >
-             Recomendation
-        </label>
-        <textarea
-            class="border border-gray-200 rounded p-2 w-full"
-            name="recomendation"
-            rows="10"
-            placeholder="Include tasks, requirements, salary, etc"
-          
-        >{{old('recomendation')}}</textarea>
-        @error('recomendation')
-        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-        @enderror
-    </div>
-    <div class="mb-6">
-        <label
-            for="description"
-            class="inline-block text-lg mb-2"
-        >
-             Description
-        </label>
-        <textarea
-            class="border border-gray-200 rounded p-2 w-full"
-            name="description"
-            rows="10"
-            placeholder="Include tasks, requirements, salary, etc"
-          
-        >{{old('description')}}</textarea>
-        @error('description')
-        <P class="text-red-500 text-xs mt-1">{{$message}}</P>  
-        @enderror
-    </div>
+
+ 
 
    
+   
 
-    <div class="mb-6">
+    <div class="mb-6 justify content center text-center">
         <button
-            class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
+            class="btn btn-primary text-white rounded py-2 px-4 hover:bg-black"
         >
-            Create Job
+           Sign Up
         </button>
 
-        <a href="/" class="text-black ml-4"> Back </a>
+       <a href="/"><button  type="button" class="btn btn-secondary text-black">Back</button></a>
 
+    </div>
+    <div class="mb-6  justify-content-center text-center">
+        <button
+            class="btn btn-success text-white rounded py-2 px-4 hover:bg-black"
+        >
+          Have an Account? Sign In
+        </button>
     </div>
 </form>
   
@@ -272,9 +186,9 @@
 
 
     <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16 ">
+{{-- <footer class="w3-center w3-black w3-padding-16 ">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  </footer>
+  </footer> --}}
   
   </body>
   </html>
