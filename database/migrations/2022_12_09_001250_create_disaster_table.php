@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('disaster', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('address')->nullable();
             $table->string('use')->nullable();

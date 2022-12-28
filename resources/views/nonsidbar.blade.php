@@ -69,12 +69,12 @@
 									<section>
 										<a href="#" class="image featured"><img  src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset($listing->picture) }}" alt="" /></a>
 										<header>
-											<h3><x-tag  :label="$listing->keywords" /></h3>
+											<h3><x-tag  :label="$listing->keywords" /></h3> , <h2>Made by {{$listing->fullname}}</h2>
 										</header>
                                        
 										<p>{{$listing->description}}</p>
 										<p> {{$listing->recomendation}}</p>
-										<div id="editButton" style="display: flex" >
+										{{-- <div id="editButton" style="display: flex" >
 											<a href="/disaster/{{$listing->id}}/edit"><button type="button"  style="min-width: 6rem" class="btn btn-success  ">Edit</button></a>
 											<form method="POST" action="/disaster/{{$listing->id}}" >
 												@csrf
@@ -82,7 +82,7 @@
 												
 												<button style="min-width: 6rem" class="btn btn-danger ml-5 ">Delete</button>
 											</form>
-										</div>
+										</div> --}}
 								
 										
                                         

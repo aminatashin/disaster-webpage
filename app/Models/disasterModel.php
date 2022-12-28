@@ -9,7 +9,7 @@ class disasterModel extends Model
 {
    
     use HasFactory;
-    protected $fillable=['name','picture','explanation','title','logo','address','significance','description','recomendation','email','fullname','keywords','link','number','use'];
+    protected $fillable=['name','user_id','picture','explanation','title','logo','address','significance','description','recomendation','email','fullname','keywords','link','number','use'];
     protected $table ='disaster';
   
    public function scopeFilter($query, array $filters){
@@ -26,5 +26,7 @@ class disasterModel extends Model
     }
 
    }
-    
+   public function user(){
+    return $this->belongsTo(User::class,'user_id');
+   }
 }

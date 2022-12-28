@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\disasterModel;
 use Illuminate\Http\Request;
+use App\Models\disasterModel;
+use App\Models\User;
+use Illuminate\Validation\Rule;
+
 
 class disasterController extends Controller
 {
@@ -29,9 +32,7 @@ class disasterController extends Controller
     public function create(){
         return view('create');
     }
-    public function update(disasterModel $listing){
-        return view('components.edit',['listing'=>$listing]);
-    }
+   
 // -------POST---------------
 
 public function store(Request $request){
@@ -57,14 +58,21 @@ public function store(Request $request){
         if($request->hasFile('picture')){
             $form['picture']=$request->file('picture')->store('img','public');
         };
+        $form['user_id']=auth()->id();
     disasterModel::create($form);
     return redirect('/')->with('success','uploaded');
 }
 // -------PUT---------------
-
+public function update(disasterModel $listing){
+    return view('components.edit',['listing'=>$listing]);
+}
 
 public function edit(disasterModel $listing , Request $request){
 
+   
+   if($listing->user_id != auth()->id()){
+    abort(403,"Unauthorised");
+   }
     $form=$request->validate([
         'name'=>'required',
         'address'=>'required',
@@ -92,8 +100,17 @@ public function edit(disasterModel $listing , Request $request){
 
 
 public function destroy(disasterModel $listing){
+    if($listing->user_id != auth()->id()){
+        abort(403,"Unauthorised");
+       }
     $listing->delete();
     return redirect('/');
 }
 
-};
+public function manage(){
+    return view('manage',[
+        'listings'=>auth()->user()->disaster()->get()
+    ]);
+}
+
+}
